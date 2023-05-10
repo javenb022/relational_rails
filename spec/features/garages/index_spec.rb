@@ -11,7 +11,7 @@ RSpec.describe "garages index page", type: :feature do
                               open_to_public: false,
                               max_capacity: 8)
     visit "/garages"
-    save_and_open_page
+    
     expect(page).to have_content(garage_1.name)
     expect(page).to have_content(garage_2.name)
   end
