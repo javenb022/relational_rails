@@ -15,7 +15,19 @@ RSpec.describe "garages show page" do
     expect(page).to_not have_content(garage_2.name)
   end
 
-  it "shows the garage city"
+  it "shows the garage city" do
+    garage_1 = Garage.create!(name: "Fester's",
+                              city: "Indianapolis",
+                              open_to_public: false,
+                              max_capacity: 6)
+    garage_2 = Garage.create!(name: "Golden's",
+                              city: "Zionsville",
+                              open_to_public: false,
+                              max_capacity: 8)
+    visit "/garages/#{garage_1.id}"
+    expect(page).to have_content(garage_1.city)
+    expect(page).to_not have_content(garage_2.city)
+  end
 
   it "says if the garage is open to the public"
 
