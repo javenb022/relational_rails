@@ -8,10 +8,10 @@ RSpec.describe "garages index page", type: :feature do
                               max_capacity: 6)
     garage_2 = Garage.create!(name: "Golden's",
                               city: "Zionsville",
-                              open_to_public: false,
+                              open_to_public: true,
                               max_capacity: 8)
     visit "/garages"
-    
+
     expect(page).to have_content(garage_1.name)
     expect(page).to have_content(garage_2.name)
   end
