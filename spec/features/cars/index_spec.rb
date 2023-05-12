@@ -24,7 +24,33 @@ RSpec.describe "cars index page" do
     expect(page).to have_content(car2.year)
     expect(page).to have_content(car2.electric)
   end
-end
+  # User Story 4, Child Show
 
-# Create 2 car instances, will have to migrate the car table
-# create a route, create controller and then index view
+  # As a visitor
+  # When I visit '/child_table_name/:id'
+  # Then I see the child with that id including the child's attributes
+  # (data from each column that is on the child table)
+
+  describe "cars show" do
+    it "links to each cars show page" do
+      garage = Garage.create!(name: "Fester's",
+                              city: "Indianapolis",
+                              open_to_public: false,
+                              max_capacity: 6)
+
+      car1 = garage.cars.create!(make: "Honda", model: "Civic", year: 2019, electric: false)
+      car2 = garage.cars.create!(make: "Tesla", model: "Model S", year: 2020, electric: true)
+      visit "/cars/#{car1.id}"
+
+      expect(page).to have_content(car1.make)
+      expect(page).to have_content(car1.model)
+      expect(page).to have_content(car1.year)
+      expect(page).to have_content(car1.electric)
+
+      expect(page).to_not have_content(car2.make)
+      expect(page).to_not have_content(car2.model)
+      expect(page).to_not have_content(car2.year)
+      expect(page).to_not have_content(car2.electric)
+    end
+  end
+end
