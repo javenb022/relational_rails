@@ -1,0 +1,5 @@
+<% @cars.each do |car| %>
+  <h3><%= car.make %> <%= car.model %></h3>
+  <p>Year: <%= car.year %></p>
+  <p>Electric?: <%= car.electric %></p>
+<% end %>
