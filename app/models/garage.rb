@@ -1,7 +1,12 @@
 class Garage < ApplicationRecord
   has_many :cars
 
-  def created
-    self.created_at
+  def self.order_by_created
+    order(created_at: :desc)
+  end
+
+  def cars_count
+    # require 'pry'; binding.pry
+    cars.count
   end
 end
