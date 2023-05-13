@@ -4,4 +4,9 @@ class Garage < ApplicationRecord
   def self.order_by_created
     order(created_at: :desc)
   end
+
+  def cars_count
+    # require 'pry'; binding.pry
+    cars.count
+  end
 end
