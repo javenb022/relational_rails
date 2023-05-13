@@ -32,6 +32,6 @@ RSpec.describe "garages index page", type: :feature do
                               max_capacity: 8)
     visit "/garages"
 
-    expect(garage_1.name).to appear_before(garage_2.name)
+    expect(garage_2.name).to appear_before(garage_1.name)
   end
 end
