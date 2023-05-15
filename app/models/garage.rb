@@ -6,7 +6,6 @@ class Garage < ApplicationRecord
   end
 
   def cars_count
-    # require 'pry'; binding.pry
     cars.count
   end
 end

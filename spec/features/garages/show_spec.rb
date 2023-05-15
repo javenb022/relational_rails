@@ -34,7 +34,7 @@ RSpec.describe "garages show page" do
     car1 = garage_1.cars.create!(make: "Honda", model: "Civic", year: 2019, electric: false)
     car2 = garage_1.cars.create!(make: "Tesla", model: "Model S", year: 2020, electric: true)
     visit "/garages/#{garage_1.id}"
-    save_and_open_page
+    
     expect(page).to have_content("Number of Cars: 2")
   end
 end
