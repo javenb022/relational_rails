@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get "/cars", to: "cars#index"
   get "/garages/new", to: "garages#new"
   post "/garages", to: "garages#create"
-
+  get "/garages/:id/edit", to: "garages#edit"
+  patch "/garages/:id", to: "garages#update"
   get "/garages/:id", to: "garages#show"
   get "/cars/:car_id", to: "cars#show"
   get "/garages/:garage_id/cars", to: "garage_cars#index"

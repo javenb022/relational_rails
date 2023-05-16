@@ -16,6 +16,16 @@ class GaragesController <ApplicationController
     redirect_to "/garages"
   end
 
+  def edit
+    @garage = Garage.find(params[:id])
+  end
+
+  def update
+    garage = Garage.find(params[:id])
+    garage.update(garage_params)
+    redirect_to "/garages/#{garage.id}"
+  end
+
   private
 
   def garage_params
