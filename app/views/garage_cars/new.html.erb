@@ -1,0 +1,15 @@
+<%= form_with url: "/garages/#{@garage.id}/cars", method: :post, local: true do |form| %>
+  <%= form.label :make %>
+  <%= form.text_field :make %>
+
+  <%= form.label :model %>
+  <%= form.text_field :model %>
+
+  <%= form.check_box :electric %>
+  <%= form.label :electric %>
+
+  <%= form.label :year %>
+  <%= form.text_field :year %>
+
+  <%= form.submit "Create Car" %>
+<% end %>
