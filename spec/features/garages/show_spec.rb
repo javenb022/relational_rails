@@ -34,7 +34,22 @@ RSpec.describe "garages show page" do
     car1 = garage_1.cars.create!(make: "Honda", model: "Civic", year: 2019, electric: false)
     car2 = garage_1.cars.create!(make: "Tesla", model: "Model S", year: 2020, electric: true)
     visit "/garages/#{garage_1.id}"
-    
+
     expect(page).to have_content("Number of Cars: 2")
+  end
+
+  describe "garage cars index page" do
+    it "shows a link to the garage's cars index page" do
+      garage_1 = Garage.create!(name: "Fester's",
+                                city: "Indianapolis",
+                                open_to_public: false,
+                                max_capacity: 6)
+      visit "/garages/#{garage_1.id}"
+      expect(page).to have_link("My Cars")
+
+      click_link("My Cars")
+
+      expect(current_path).to eq("/garages/#{garage_1.id}/cars")
+    end
   end
 end
