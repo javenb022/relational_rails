@@ -19,4 +19,15 @@ RSpec.describe "garages cars index page" do
     expect(page).to have_content(car2.year)
     expect(page).to have_content(car2.electric)
   end
+
+  describe "garage cars create" do
+    it "has a link to create a new car" do
+      garage_1 = Garage.create!(name: "Fester's",
+                              city: "Indianapolis",
+                              open_to_public: false,
+                              max_capacity: 6)
+      visit "/garages/#{garage_1.id}/cars"
+      expect(page).to have_link("Add Car")
+    end
+  end
 end
