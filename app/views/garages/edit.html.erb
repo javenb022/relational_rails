@@ -1,0 +1,14 @@
+<%= form_with url: "/garages/#{@garage.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+
+  <%= form.label :open_to_public %>
+  <%= form.check_box :open_to_public %>
+
+  <%= form.label :max_capacity %>
+  <%= form.text_field :max_capacity %>
+  <%= form.submit "Update Garage" %>
+<% end %>
