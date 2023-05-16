@@ -52,4 +52,21 @@ RSpec.describe "garages show page" do
       expect(current_path).to eq("/garages/#{garage_1.id}/cars")
     end
   end
+
+  describe "garage update" do
+    it "shows a link to update a garage" do
+      garage_1 = Garage.create!(name: "Fester's",
+                              city: "Indianapolis",
+                              open_to_public: false,
+                              max_capacity: 6)
+      visit "/garages/#{garage_1.id}"
+
+      expect(page).to have_link("Update Garage")
+
+      click_link("Update Garage")
+      expect(current_path).to eq("/garages/#{garage_1.id}/edit")
+
+
+    end
+  end
 end
